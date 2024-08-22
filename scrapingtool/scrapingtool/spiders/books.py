@@ -19,6 +19,6 @@ class BooksSpider(scrapy.Spider):
     def parse(self, response):
         # self.log(f"Processing URL: {response.url}")
         page = response.url.split("/")[-2]
-        filename = f"books-{page}.html"
+        filename = f"books-{page}.json"
         Path(filename).write_bytes(response.body)
         self.log(f"Saved file {filename}")
